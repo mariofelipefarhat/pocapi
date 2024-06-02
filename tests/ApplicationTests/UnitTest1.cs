@@ -1,4 +1,4 @@
-namespace test;
+namespace ApplicationTests;
 using Xunit;
 public class UnitTest1
 {
