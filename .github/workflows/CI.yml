@@ -32,13 +32,16 @@ jobs:
         
     - name: Restore dependencies
       run: |
-        dotnet restore ${{ env.BASE_PATH }}pocapi.sln
+        cd ${{ env.BASE_PATH }}
+        dotnet restore pocapi.sln
 
     - name: Build
       run: | 
-        dotnet ${{ env.BASE_PATH }}build pocapi.sln --no-restore
+        cd ${{ env.BASE_PATH }}
+        dotnet build pocapi.sln --no-restore
       
     - name: Test
       run: |
-        dotnet test ./test/pocapi/test.csproj --no-build --verbosity normal
+        cd ${{ env.BASE_PATH }}
+        dotnet test ../tests/ApplicationTests/ApplicationTests.csproj --no-build --verbosity normal
     
